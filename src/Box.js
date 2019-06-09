@@ -15,7 +15,11 @@ class Box extends Component {
     this.handleClick = this.handleClick.bind(this);
   };
   pickColor() {
-    let nextColor = choice(this.props.allColors);
+    let nextColor;
+    do{
+
+      nextColor = choice(this.props.allColors);
+    } while (nextColor === this.state.color);
     this.setState({color: nextColor})
   }
   handleClick() {
