@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import {choice} from './helpers';
+import { choice } from './helpers';
 import './Box.css';
 class Box extends Component {
-  static defaultProps = {
-    allColors: [
-      'purple', 'magenta', 'wheat', 'pink', 'violet'
-    ]
-  }
+
   constructor(props) {
     super(props);
     this.state = {
-      color: choice(this.props.allColors) 
+      color: choice(this.props.colors)
     };
     this.handleClick = this.handleClick.bind(this);
-  };
+  }
   pickColor() {
     let nextColor;
-    do{
-
-      nextColor = choice(this.props.allColors);
+    do {
+      nextColor = choice(this.props.colors);
     } while (nextColor === this.state.color);
-    this.setState({color: nextColor})
+    this.setState({ color: nextColor });
   }
   handleClick() {
     this.pickColor();
@@ -33,7 +28,7 @@ class Box extends Component {
         onClick={this.handleClick}
       />
     );
-}
+  }
 }
 
 export default Box;
